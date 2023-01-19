@@ -1,0 +1,68 @@
+<div
+  class="container rounded"
+  style="background-color: #ff8e5e; height: 300px; width: 1500px"
+>
+  <div class="container mt-5">
+    <h3>Fatura</h3>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>İsim</label>
+          <input
+            class="form-control"
+            type="text"
+            (input)="onNameChange($event.target.value)"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label><b>İsim</b></label>
+        <div>
+          {{ name | titlecase }}
+        </div>
+      </div>
+    </div>
+    <br />
+    <!---->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Ödeme Tarihi</label>
+          <input
+            class="form-control"
+            type="date"
+            (input)="onDateChange($event.target.value)"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label><b>Ödeme Tarihi</b></label>
+        <div>
+          {{ date | date : "MMMM d,y" }}
+        </div>
+      </div>
+    </div>
+    <br />
+    <!---->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Tutar</label>
+          <input
+            class="form-control"
+            (input)="onMoneyChange($event.target.value)"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label><b>Tutar</b></label>
+        <div>
+          {{ money | currency }}
+        </div>
+      </div>
+    </div>
+    <!---->
+  </div>
+</div>
+<router-outlet></router-outlet>
